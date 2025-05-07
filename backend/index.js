@@ -7,7 +7,7 @@ import cookieParser from "cookie-parser";
 import userRoute from "./routes/user.route.js";
 import blogRoute from "./routes/blog.route.js";
 
-import cors from "cors";
+//import cors from "cors";
 const app = express();
 dotenv.config();
 
@@ -19,11 +19,47 @@ app.use(express.json());
 app.use(cookieParser());
 //const allowedOrigins = [process.env.FRONTEND_URL, 'http://localhost:5173'];
 
-app.use(cors({
-  origin: "http://localhost:5173",  // Allow requests only from localhost:5173
-  methods: ["GET", "POST", "PUT", "DELETE"],  // Allowed HTTP methods
-  credentials: true,  // Allow cookies and headers
-}));
+// const allowedOrigins = [
+//   'http://localhost:5173', // local dev
+//   'https://clubcrush-sn.onrender.com', // Render frontend
+//   'https://your-frontend.netlify.app',  // Netlify frontend (if used)
+//   // add any other domains you use
+// ];
+
+// app.use(cors({
+//   origin: function (origin, callback) {
+//     // allow requests with no origin (like mobile apps, curl, etc.)
+//     if (!origin) return callback(null, true);
+//     if (allowedOrigins.includes(origin)) {
+//       return callback(null, true);
+//     } else {
+//       return callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   credentials: true
+// }));
+
+const cors = require('cors');
+
+// Add your allowed frontend URLs here
+const allowedOrigins = [
+  'http://localhost:5173',             // for local dev
+  'https://clubcrush.netlify.app',     // for Netlify production
+  'https://clubcrush-sn.onrender.com'  // optional: another frontend if needed
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 app.use(
   fileUpload({
