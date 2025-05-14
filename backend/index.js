@@ -7,7 +7,7 @@ import cookieParser from "cookie-parser";
 import userRoute from "./routes/user.route.js";
 import blogRoute from "./routes/blog.route.js";
 
-//import cors from "cors";
+import cors from "cors";
 const app = express();
 dotenv.config();
 
@@ -39,24 +39,31 @@ app.use(cookieParser());
 //   credentials: true
 // }));
 
-const cors = require('cors');
+//const cors = require('cors');
 
 // Add your allowed frontend URLs here
 const allowedOrigins = [
-  'http://localhost:5173',             // for local dev
+  'http://localhost:5174',             // for local dev
+  process.env.FRONTEND_URL,            // for production frontend
   'https://clubcrush.netlify.app',     // for Netlify production
   'https://clubcrush-sn.onrender.com'  // optional: another frontend if needed
-];
+].filter(Boolean); // Remove any undefined values
 
 const corsOptions = {
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
+      console.log('Blocked by CORS:', origin);
       callback(new Error("Not allowed by CORS"));
     }
   },
   credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept']
 };
 
 app.use(cors(corsOptions));
@@ -64,7 +71,10 @@ app.use(cors(corsOptions));
 app.use(
   fileUpload({
     useTempFiles: true,
-    tempFileDir: "/tmp/",
+    tempFileDir: process.env.NODE_ENV === 'production' ? '/tmp' : './tmp',
+    limits: { fileSize: 50 * 1024 * 1024 }, // 50MB max file size
+    abortOnLimit: true,
+    responseOnLimit: 'File size limit has been reached'
   })
 );
 
