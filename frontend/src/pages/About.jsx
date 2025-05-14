@@ -10,44 +10,43 @@ function About() {
       <p>
         This is{" "}
         <strong className="text-blue-800 font-semibold hover:scale-105 duration-500">
-          {profile?.user?.name}
+          Aman
         </strong>
-        , a driven full stack developer and Computer Science engineering student who enjoys building practical tech solutions that create real impact. With a knack for clean code and collaboration, Satish thrives in both development and leadership roles.
+        , an enthusiastic Computer Science and Business Systems student with a strong foundation in full-stack development. Aman is passionate about building impactful applications that enhance user experience and solve real-world problems.
       </p>
 
       <h2 className="font-semibold text-blue-800 text-xl">Technical Expertise:</h2>
       <p>
-        <strong>Front-End:</strong> Experienced with React.js, Next.js, HTML5, CSS3, and responsive UI design. Focused on building clean, fast, and user-friendly interfaces. <br />
-        <strong>Back-End:</strong> Skilled in Node.js and Express.js, with solid understanding of REST APIs and full-stack architecture. <br />
-        <strong>Databases:</strong> Comfortable working with both relational and non-relational databases like MySQL and MongoDB. <br />
-        <strong>Hosting & Deployment:</strong> Proficient in Git, GitHub, Netlify, Cloudflare, and Vercel for smooth CI/CD workflows.
+        <strong>Languages & Tools:</strong> Proficient in C, C++, HTML, CSS, JavaScript, SQL, and Git. <br />
+        <strong>Frameworks & Libraries:</strong> Experienced with React, Next.js, Django, and React Toolkit. <br />
+        <strong>Projects:</strong> Skilled in developing APIs, working with AWS, and designing UI/UX using Figma.
       </p>
 
       <h2 className="font-semibold text-blue-800 text-xl">Professional Highlights:</h2>
       <p>
-        Creator of <strong>Next Bite</strong>, a real-time mess management system used in hostels and PGs. <br />
-        Logistics Coordinator at the DSC (Developer Student Club), responsible for smooth event execution and cross-team coordination. <br />
-        Main organizer of <strong>HackElite</strong>, a national-level 24-hour hackathon hosted by JSS STU with 50+ teams and a prize pool of ₹1 lakh. <br />
-        Editorial Lead at LCC, where he coordinated content, led communications, and played a key role in events like FOSS Camp and Projectify. <br />
-        Led and contributed to several student-led initiatives focused on community learning and tech enablement.
+        Developed <strong>Campus-Buzz</strong>, a full-stack platform to enhance event visibility for student clubs at JSSSTU. <br />
+        Built the <strong>AMA App</strong> using Next.js and TypeScript, enabling interactive Q&A with authentication and voting features. <br />
+        Created an <strong>Inventory Management System</strong> with Django and secure access control. <br />
+        Active member and event coordinator in the CSI Club at JSSSTU, helping organize various college-level events. <br />
+        Represented his college in inter-college fashion competitions as a model for the <strong>Pehchaan</strong> club.
       </p>
 
-      <br />
       <span>
-        Satish is passionate about using technology to solve everyday challenges and empower students and communities. Whether it's through organizing tech events, building tools that make life easier, or contributing to open-source, he believes in staying hands-on and humble.
+        Aman is driven by curiosity and creativity. He enjoys building things that are not only functional but also engaging. Whether it's through code, coordination, or creativity, he thrives in collaborative and fast-paced environments.
       </span>
 
       <h2 className="font-semibold text-blue-800 text-xl">Leadership & Recognition:</h2>
       <p>
-        Former school leader and cadet in both NCC Navy and Scouts & Guides. <br />
-        Earned the <strong>B Certificate</strong> in NCC and was honored with the prestigious <strong>Rajya Puraskar</strong> in Scouts, recognized by the State Governor. <br />
-        Academically, he secured first rank in SSLC with 96.96% and 5th rank in PU with 94.33% overall.
+        Event Team Student Coordinator for CSI JSSSTU, playing a pivotal role in event planning and execution. <br />
+        Winner of various coding competitions hosted by CSI and LCC. <br />
+        Champion of Tuvvie’s Inter-College Fashion Competition as a key contributor in the Pehchaan team.
       </p>
+
       <h2 className="font-semibold text-blue-800 text-xl">
         Personal Interests and Inspiration:
       </h2>
       <p>
-        Outside of tech, Satish enjoys storytelling, community engagement, and sharing knowledge with others. He draws inspiration from his humble beginnings and strives to help students from rural areas discover their potential. His journey is deeply rooted in determination, hard work, and a desire to give back to society.
+        Aman’s interests go beyond code—he is also drawn to fashion, creativity, and event organizing. His ability to blend technical skills with artistic expression makes him a unique and versatile individual who’s always looking to grow, contribute, and inspire.
       </p>
     </div>
   );
